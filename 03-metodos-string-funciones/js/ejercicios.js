@@ -31,22 +31,13 @@ console.log(`Tú nombre tiene ${nombreLength(nombreCompleto)} letras`);
 console.log('---------- ejercicio 3 ----------');
 
 let nombreComp = prompt('Escriba su nombre completo: ');
-let vowels = 'aeiou';
 
-function countVowels(nombreComp) {
-	nombreComp = nombreComp.toLowerCase();
-	let numVowels = 0;
-
-	for(let i = 0; i < nombreComp.length; i++) {
-		if(vowels.indexOf(nombreComp[i]) !== -1) {
-			numVowels++;
-		}
-	}
-	
-	return numVowels;
+function countVowels(nombreComp) {	
+	return nombreComp.match(/[AEIOU]/gi);
 }
 
-console.log(`Tú nombre (${nombreComp}) tiene ${countVowels(nombreComp)} vocales`);
+let nVowels = countVowels(nombreComp);
+console.log(`Tú nombre (${nombreComp}) tiene ${nVowels?nVowels.length:0} vocales`);
 
 
 console.log('---------- ejercicio 4 ----------');
@@ -54,14 +45,7 @@ console.log('---------- ejercicio 4 ----------');
 let texto = "Cada estudiante tiene su ritmo, cada estudiante tiene su talento, y cada estudiante completa al estudiante que tiene a su lado";
 
 function koderReplace(texto, buscada, reemplazo) {
-	let count = 0;
-	let position = texto.indexOf(buscada);
-	while(position !== -1) {
-		count++;
-		position = texto.indexOf(buscada, position+buscada.length);
-	}
-	
-	return {count: count, texto: texto.replaceAll(buscada, reemplazo)};
+	return {count: texto.match(new RegExp(buscada, 'gi')).length, texto: texto.replaceAll(buscada, reemplazo)};
 }
 
 const textR = koderReplace(texto, 'estudiante', 'koder');
@@ -90,7 +74,7 @@ let stringDosPalabras = 'Programación JavaScript';
 
 function wordLongest(frase) {
 	let words = frase.split(' ');
-	return words[0] > words[1] ? words[0] : words[1];
+	return words[0].length > words[1].length ? words[0] : words[1];
 }
 
 console.log(`Del string (${stringDosPalabras}) de dos palabras, la palabra más larga es: ${wordLongest(stringDosPalabras)}`);
