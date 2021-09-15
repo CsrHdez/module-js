@@ -93,9 +93,6 @@ let mentorArray = [
 - Obtener la lista de mentores cuyo promedio sea mayor a 9.5
 */
 
-
-
-
 let scoresArray = [];
 mentorArray.forEach(mentor => scoresArray = scoresArray.concat(mentor.scores));
 console.log(scoresArray);
@@ -112,7 +109,7 @@ signatureFilter.forEach(signature => totalScore += signature.score)
 console.log(totalScore/signatureFilter.length)
 
 totalScore = 0;
-signatureMentor = scoresArray.filter(signature => signature.signature == 'JS')
+signatureFilter = scoresArray.filter(signature => signature.signature == 'JS')
 signatureFilter.forEach(signature => totalScore += signature.score)
 console.log(totalScore/signatureFilter.length)
 
@@ -127,7 +124,8 @@ mentorArray.forEach(mentor => {
 
 // Crear un array de string con la siguiente forma
 
-mentorArray.forEach(mentor => console.log(`Mi nombre es ${mentor.name} y mi promedio es ${mentor.promedio}`) );
+const arrString = [];
+mentorArray.forEach(mentor => arrString.push(`Mi nombre es ${mentor.name} y mi promedio es ${mentor.promedio}`) );
 
 // Obtener la lista de mentores cuyo promedio sea mayor a 9.5
 
