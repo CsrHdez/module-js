@@ -71,28 +71,26 @@ const songsData = [
 - La cancion con más likes
 */
 
-
 /* Agrupar nombres de las bandas, que no esten repetidas */
-let bands = arr => {
+let bands = songs => {
     let bands = [];
-    arr.forEach(item => !bands.includes(item.band) ? bands.push(item.band) : null );
+    songs.forEach(song => !bands.includes(song.band) ? bands.push(song.band) : null );
     return bands;
 }
 
 console.log(bands(songsData));
 
 /* Agrupar las canciones por banda. */
-
-let songsForBand = arr => {
-    let songsForBand = [];
-    bands(arr).forEach(band => {
-        songsForBand.push({
-            band,
-            songs: arr.filter(item => item.band === band)
-        });
-    });
-    return songsForBand
-}
+// let songsForBand = songs => {
+//     let songsForBand = bands(songs).map(band => {
+//         return {
+//             band,
+//             songs: songs.filter(song => song.band === band)
+//         };
+//     });
+//     return songsForBand
+// }
+let songsForBand = songs => bands(songs).map(band => ({band, songs: songs.filter(song => song.band === band)}))
 
 console.log(songsForBand(songsData));
 
@@ -100,8 +98,7 @@ console.log(songsForBand(songsData));
 - La cancion con más reproducciones
 - La cancion con más likes
 */
-
-let forStatistics = (arr, param) => { return arr.reduce((lastItem, currentItem) => currentItem.statistics[param] >= lastItem.statistics[param] ? currentItem : lastItem); }
+let forStatistics = (songs, param) => songs.reduce((lastSong, currentSong) => currentSong.statistics[param] >= lastSong.statistics[param] ? currentSong : lastSong)
 
 console.log(forStatistics(songsData, 'reproductions'));
 
