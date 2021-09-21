@@ -72,23 +72,18 @@ const songsData = [
 */
 
 /* Agrupar nombres de las bandas, que no esten repetidas */
-let bands = songs => {
-    let bands = [];
-    songs.forEach(song => !bands.includes(song.band) ? bands.push(song.band) : null );
-    return bands;
-}
+let bands = songs => songs.reduce((bands, song) => !bands.includes(song.band) ? [...bands, song.band] : bands, [])
 
 console.log(bands(songsData));
 
 /* Agrupar las canciones por banda. */
 // let songsForBand = songs => {
-//     let songsForBand = bands(songs).map(band => {
+//     return bands(songs).map(band => {
 //         return {
 //             band,
 //             songs: songs.filter(song => song.band === band)
 //         };
 //     });
-//     return songsForBand
 // }
 let songsForBand = songs => bands(songs).map(band => ({band, songs: songs.filter(song => song.band === band)}))
 
