@@ -174,7 +174,14 @@ const products = [
     - obtener los productos de tipo chips and drink
 */
 let productsByType = (products, type) => products.filter(product => product.type === type);
+let productsByTypes = products => products.reduce((accum, product) => {
+    const { type } = product;
+    return !accum[type] ? {...accum, [type]: [product]} : {...accum, [type]: [...accum[type], product]};
+}, {});
 
+console.log(productsByTypes(products));
+console.log('---------------');
+console.log('---------------');
 console.log('Estos son los productos por tipo (chip)', productsByType(products, 'chip'));
 console.log('---------------');
 console.log('Estos son los productos por tipo (drink)', productsByType(products, 'drink'));
