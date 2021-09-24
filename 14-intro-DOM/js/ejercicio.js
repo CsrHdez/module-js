@@ -170,7 +170,7 @@ class RenderKoders {
         return `
                 <tfoot>
                     <tr>
-                        <td colspan="${this.allSignatures.length + 1}">Promedio General<td>
+                        <td colspan="${this.allSignatures.length + 1}">Promedio General</td>
                         <td>${this.generalAverage()}</td>
                     <tr>
                 </tfoot>
@@ -183,7 +183,7 @@ class RenderKoders {
 }
 
 let koderObjectCollection = mentorsArray.map(mentor => new Koder(mentor))
-
 let renderKoder = new RenderKoders(koderObjectCollection)
+let tKoders = document.querySelector('#koders')
 
-console.log(renderKoder.render())
+tKoders.innerHTML = renderKoder.render()
