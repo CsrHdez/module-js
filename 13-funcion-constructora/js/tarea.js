@@ -49,3 +49,7 @@ Product.prototype.expiryDays = function () {
 Product.prototype.averagePriceLast6Months = function () {
     return this.pricesLast6Months.reduce((accum, price) => accum + price, 0) / this.pricesLast6Months.length;
 }
+
+let soldGreaterThan = (arrProducts, amount) => arrProducts.filter(product => product.quantitySoldLastWeek > amount);
+let soldLessThan = (arrProducts, amount) => arrProducts.filter(product => product.quantitySoldLastWeek < amount);
+let daysOfExpiration = (arrProducts, amount) => arrProducts.filter(product => product.expiryDays() < amount);
