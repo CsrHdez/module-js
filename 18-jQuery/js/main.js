@@ -3,5 +3,11 @@ $("#save-user").click(() => {
 })
 
 $('#toggle-text').click(() => {
-    $('#text').hide()
+    $('#text').toggle()
+})
+
+$('.btn.btn-secondary').click((e) => {
+    console.log(e.target.dataset.deleteClass)
+    let classDelete = e.target.dataset.deleteClass
+    $(`p.${classDelete}`).remove()
 })
