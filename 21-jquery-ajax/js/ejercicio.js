@@ -1,4 +1,4 @@
-let getData = () => {
+const getData = () => {
     let mentors
     $.ajax({
         method: "GET", 
@@ -19,6 +19,20 @@ const createMentor = (mentorObject) => {
         method: "POST", 
         url: "https://api-13va-default-rtdb.firebaseio.com/cesar/mentors.json",
         data: JSON.stringify(mentorObject),
+        success: (response)=> {
+            alert('Todo salio bien')
+        },
+        error: error => {
+            alert('Ocurrio un error')
+        },
+        async: false
+    })
+}
+
+const deleteMentor = id => {
+    $.ajax({
+        method: "DELETE", 
+        url: `https://api-13va-default-rtdb.firebaseio.com/cesar/mentors/${id}.json`,
         success: (response)=> {
             alert('Todo salio bien')
         },
@@ -53,7 +67,7 @@ const renderCardsMentors = mentorsObj => {
                           <a href="${urlGitHub}" class="card-link" target="_blank">${gitUser}</a>
                       </div>
                       <div class="card-footer d-flex justify-content-between">
-                          <button class="btn btn-danger" data-id-mentor="${key}">Eliminar</button>
+                          <button class="btn btn-danger btn-delete-mentor" data-id-mentor="${key}">Eliminar</button>
                           <button class="btn btn-info text-white" data-id-mentor="${key}">Editar</button>
                       </div>
                   </div>
@@ -61,6 +75,10 @@ const renderCardsMentors = mentorsObj => {
     }
     $("#cards-mentors").empty()
     $("#cards-mentors").append(res)
+    $('.btn-delete-mentor').click( e => {
+        deleteMentor(e.target.dataset.idMentor)
+        renderCardsMentors( getData() )
+    })
 }
 
 $('#form-create-mentor').submit( event => {
@@ -68,6 +86,5 @@ $('#form-create-mentor').submit( event => {
     createMentor( getDataForm("#form-create-mentor") )
     renderCardsMentors( getData() )
 })
-
 
 renderCardsMentors( getData() )
