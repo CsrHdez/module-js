@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>jQuery</title>
+  </head>
+  <body>
+      <main class="container">
+          <h1>Mentors CRUD AJAX - Firebase</h1>
+          <div class="row mt-4">
+              <form action="" id="form-create-mentor" method="POST">
+                  <div class="row g-3">
+                      <div class="col">
+                          <div class="form-group mt-3">
+                              <label for="name">Nombre:</label>
+                              <input type="text" id="name" name="name" placeholder="Juanito Perez" class="form-control">
+                          </div>
+                          <div class="form-group mt-3">
+                              <label for="phone">Telefono:</label>
+                              <input type="number" id="phone" name="phone" placeholder="55 4433 2211" class="form-control">
+                          </div>
+                          <div class="form-group mt-3">
+                              <label for="gitUser">User GitHub</label>
+                              <input type="text" name="gitUser" id="gitUser" placeholder="@CsrHdez" class="form-control">
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="form-group mt-3">
+                              <label for="urlGitHub">URL GitHub:</label>
+                              <input type="url" name="urlGitHub" id="urlGitHub" placeholder="https://github.com/EveFer" class="form-control">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <button type="submit" class="btn btn-success">Guardar</button>
+                      </div>
+                  </div>
+              </form>
+          </div>
+          <section id="cards-mentors" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mt-4">
+
+              <div class="col">
+                  <div class="card">
+                      <div class="card-header">
+                          <h5 class="card-title">Name Mentor</h5>
+                      </div>
+                      <div class="card-body">
+                          <p class="card-text">5544332211</p>
+                          <a href="https://github.com/CsrHdez" class="card-link" target="_blank">@UserGitHub</a>
+                      </div>
+                      <div class="card-footer d-flex justify-content-between">
+                          <button class="btn btn-danger">Eliminar</button>
+                          <button class="btn btn-info text-white">Editar</button>
+                      </div>
+                  </div>
+              </div>
+
+          </section>
+        </mian>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+    <!-- JS -->
+    <!-- <script src="./js/main.js"></script> -->
+    <script src="./js/ejercicio.js"></script>
+</body>
+</html>
